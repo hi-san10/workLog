@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('work_reports', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
+            $table->foreignId('contractors_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('work_sites_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
