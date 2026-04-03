@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('work_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('dairy_reports_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('work_reports_id')->constrained()->cascadeOnDelete();
             $table->foreignId('makers_id')->constrained()->cascadeOnDelete();
             $table->foreignId('tasks_id')->constrained()->cascadeOnDelete();
             $table->integer('quantity');
