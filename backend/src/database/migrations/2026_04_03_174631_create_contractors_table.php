@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('contractors', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->date('data_of_birth');
+            $table->string('address');
             $table->timestamps();
         });
     }
