@@ -8,8 +8,10 @@
         <p>外注先</p>
         <label for="contractorName">氏名</label>
         <input type="text" name="name" id="contractorName">
-        <label for="contractorBirth">生年月日</label>
-        <input type="date" name="date_of_birth" id="contractorBirth">
+        <p>生年月日</p>
+        <input type="number" name="year">
+        <input type="number" name="month">
+        <input type="number" name="day">
         <label for="contractorAddress">住所</label>
         <input type="text" name="address" id="contractorAddress">
         <input type="submit">
