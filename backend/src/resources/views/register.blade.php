@@ -19,13 +19,13 @@
     <form action="maker" method="post">
         @csrf
         <label for="maker">メーカー</label>
-        <input type="text" name="maker" id="maker">
+        <input type="text" name="name" id="maker">
         <input type="submit">
     </form>
     <form action="task" method="post">
         @csrf
         <label for="task">作業内容</label>
-        <input type="text" name="task" id="task">
+        <input type="text" name="name" id="task">
         <input type="submit">
     </form>
 </div>
