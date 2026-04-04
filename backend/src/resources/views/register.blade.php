@@ -26,6 +26,8 @@
         @csrf
         <label for="task">作業内容</label>
         <input type="text" name="name" id="task">
+        <label for="unit">単位</label>
+        <input type="text" name="unit" id="unit">
         <input type="submit">
     </form>
 </div>
