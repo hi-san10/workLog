@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('contractors_id')->constrained()->cascadeOnDelete();
-            $table->date('target_month');
+            $table->string('target_month');
             $table->integer('amount');
             $table->string('payment_method');
             $table->timestamps();
