@@ -1,0 +1,48 @@
+
+
+/* common.css */
+
+:root {
+    --bg: #f8f7f4;
+    --text: #1a1a1a;
+    --text-muted: #888;
+    --border: #e0ddd6;
+}
+
+/* ─── Header ─── */
+header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+header > div {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+/* ─── Links ─── */
+.link {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+
+.link:hover {
+    color: var(--text);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.link.active,
+.link[aria-current="page"] {
+    color: var(--text);
+    font-weight: 500;
+}
