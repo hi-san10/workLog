@@ -43,6 +43,6 @@ class WorkReportController extends Controller
             ]);
         });
 
-        return back();
+        return back()->withInput();
     }
 }
