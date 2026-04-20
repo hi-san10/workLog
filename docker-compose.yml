@@ -23,8 +23,9 @@ services:
             MYSQL_DATABASE: workLog_db
             MYSQL_USER: workLog_user
             MYSQL_PASSWORD: workLog_pass
-        command:
-            mysqld --default-authentication-plugin=mysql_native_password
+        command: >
+            mysqld
+            --default-authentication-plugin=mysql_native_password
         volumes:
             - ./backend/docker/mysql/data:/var/lib/mysql
             - ./backend/docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
