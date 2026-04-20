@@ -13,21 +13,21 @@
         </select>
         <select name="work_site" id="">
             @foreach($work_sites as $work_site)
-                <option value="{{ $work_site->id }}" {{ old('word_site') == $contractor->id ? 'selected' : '' }}>{{ $work_site->name }}</option>
+                <option value="{{ $work_site->id }}" {{ old('work_site') == $work_site->id ? 'selected' : '' }}>{{ $work_site->name }}</option>
             @endforeach
         </select>
         <select name="maker" id="">
             @foreach($makers as $maker)
-                <option value="{{ $maker->id }}" {{ old('maker') == $contractor->id ? 'selected' : '' }}>{{ $maker->name }}</option>
+                <option value="{{ $maker->id }}" {{ old('maker') == $maker->id ? 'selected' : '' }}>{{ $maker->name }}</option>
             @endforeach
         </select>
         <select name="task" id="">
             @foreach($tasks as $task)
-                <option value="{{ $task->id }}">{{ $task->name }}{{ $task->unit }}</option>
+                <option value="{{ $task->id }}" {{ old('task') == $task->id ? 'selected' : '' }}>{{ $task->name }}{{ $task->unit }}</option>
             @endforeach
         </select>
         <label for="quantity">数量</label>
-        <input type="number" name="quantity" id="quantity">
+        <input type="number" name="quantity" id="quantity" value="{{ old('quantity') }}">
         <input type="submit">
     </form>
 </div>
