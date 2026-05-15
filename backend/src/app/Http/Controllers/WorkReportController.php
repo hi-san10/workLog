@@ -24,6 +24,7 @@ class WorkReportController extends Controller
         return view('work_report', compact('contractors', 'work_sites', 'makers', 'tasks'));
     }
 
+    // 日次記録作成
     public function store(Request $request)
     {
         DB::transaction(function () use(
@@ -43,6 +44,8 @@ class WorkReportController extends Controller
             ]);
         });
 
-        return back()->withInput();
+        return back()
+            ->withInput()
+            ->with('success', '登録完了');
     }
 }

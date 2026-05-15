@@ -2,6 +2,9 @@
 
 @section('content')
 <div>
+    @if ('session')
+    <p>{{ session('success') }}</p>
+    @endif
     <form action="workReport" method="post">
         @csrf
         <label for="">日付</label>
