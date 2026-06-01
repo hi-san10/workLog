@@ -27,21 +27,21 @@ class WorkReportController extends Controller
     // 日次記録作成
     public function store(Request $request)
     {
-        DB::transaction(function () use(
-            $request,
-        ) {
-            $work_report = WorkReport::create([
-                'date' => $request->date,
-                'contractors_id' => $request->contractor,
-                'work_sites_id' => $request->work_site,
-            ]);
+        DB::transaction(function () use ($request) {
+            foreach ($request->contractors as $contractors_id) {
+                $work_report = WorkReport::create([
+                    'date' => $request->date,
+                    'contractors_id' => $contractors_id,
+                    'work_sites_id' => $request->work_site,
+                ]);
 
-            WorkDetail::create([
-                'work_reports_id' => $work_report->id,
-                'makers_id' => $request->maker,
-                'tasks_id' => $request->task,
-                'quantity' => $request->quantity,
-            ]);
+                WorkDetail::create([
+                    'work_reports_id' => $work_report->id,
+                    'makers_id' => $request->maker,
+                    'tasks_id' => $request->task,
+                    'quantity' => $request->quantity,
+                ]);
+            }
         });
 
         return back()
