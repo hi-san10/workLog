@@ -19,7 +19,7 @@ class WorkReportController extends Controller
         $contractors = Contractor::all();
         $work_sites = WorkSite::all();
         $makers = Maker::all();
-        $tasks = Task::all();
+        $tasks = Task::orderBy('sort_order')->get();
 
         return view('work_report', compact('contractors', 'work_sites', 'makers', 'tasks'));
     }
