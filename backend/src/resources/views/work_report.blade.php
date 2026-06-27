@@ -33,7 +33,7 @@
         </select>
         <select name="task" id="task">
             @foreach($tasks as $task)
-                <option value="{{ $task->id }}" {{ old('task') == $task->id ? 'selected' : '' }}>{{ $task->name }}{{ $task->unit }}</option>
+                <option value="{{ $task->id }}" {{ old('task') == $task->id ? 'selected' : '' }}>{{ $task->name }} {{ $task->unit }}</option>
             @endforeach
         </select>
         <label for="quantity">数量</label>
