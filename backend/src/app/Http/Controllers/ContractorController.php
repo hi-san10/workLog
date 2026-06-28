@@ -10,7 +10,14 @@ class ContractorController extends Controller
 {
     public function index()
     {
-        return view('register');
+        $contractors = Contractor::all();
+        return view('register', compact('contractors'));
+    }
+
+    public function destroy(Contractor $contractor)
+    {
+        $contractor->delete();
+        return back();
     }
 
     public function store(Request $request)

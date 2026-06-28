@@ -27,6 +27,10 @@ class WorkReportController extends Controller
     // 日次記録作成
     public function store(Request $request)
     {
+        if (count($request->contractors) !== count(array_unique($request->contractors))) {
+            return back()->withInput()->with('error', '外注先が重複しています');
+        }
+
         DB::transaction(function () use ($request) {
             foreach ($request->contractors as $contractors_id) {
                 $work_report = WorkReport::create([

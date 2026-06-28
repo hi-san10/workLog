@@ -5,6 +5,9 @@
     @if (session('success'))
     <p>{{ session('success') }}</p>
     @endif
+    @if (session('error'))
+    <p>{{ session('error') }}</p>
+    @endif
     <form action="workReport" method="post">
         @csrf
         <label for="date">日付</label>
@@ -19,7 +22,21 @@
                 {{ $contractor->name }}
             </label>
             @endforeach
+            <button type="button" class="preset-btn" data-ids="1,2,3,8">カンザキ</button>
+            <button type="button" class="preset-btn" data-ids="5,6">片野</button>
         </fieldset>
+
+        <script>
+        document.querySelectorAll('.preset-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var ids = this.dataset.ids.split(',').map(Number);
+                var targets = Array.from(document.querySelectorAll('input[name="contractors[]"]'))
+                    .filter(function(cb) { return ids.includes(Number(cb.value)); });
+                var allChecked = targets.every(function(cb) { return cb.checked; });
+                targets.forEach(function(cb) { cb.checked = !allChecked; });
+            });
+        });
+        </script>
 
         <select name="work_site" id="work_site">
             @foreach($work_sites as $work_site)

@@ -14,6 +14,7 @@ Route::post('workReport', [WorkReportController::class, 'store']);
 Route::get('registerTop', [ContractorController::class, 'index']);
 
 Route::post('contractor', [ContractorController::class, 'store']);
+Route::delete('contractor/{contractor}', [ContractorController::class, 'destroy']);
 
 Route::post('maker', [MakerController::class, 'store']);
 
