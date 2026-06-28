@@ -3,6 +3,18 @@
 @section('content')
 <h1>登録画面</h1>
 <div>
+    <ul>
+        @foreach($contractors as $contractor)
+        <li>
+            {{ $contractor->name }}
+            <form action="contractor/{{ $contractor->id }}" method="post" style="display:inline">
+                @csrf
+                @method('DELETE')
+                <button type="submit">削除</button>
+            </form>
+        </li>
+        @endforeach
+    </ul>
     <form action="contractor" method="post">
         @csrf
         <p>外注先</p>
